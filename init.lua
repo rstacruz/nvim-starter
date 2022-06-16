@@ -80,12 +80,27 @@ lspconfig.sumneko_lua.setup({})
 vim.g.mapleader = " "
 require("which-key").register({
   ["<c-p>"] = { "<cmd>Telescope fd<cr>", "Open files" },
-  ["<leader>s"] = { name = "settings..." },
-  ["<leader>sc"] = { "<cmd>Telescope colorscheme<cr>", "Change colorscheme" },
-  ["<leader>si"] = { "<cmd>e $MYVIMRC<cr>", "Edit settings" },
-  ["<leader>sr"] = { "<cmd>luafile $MYVIMRC<cr>", "Reload settings" },
+
+  ["<leader>s"] = { name = "Settings..." },
+  ["<leader>sc"] = { "<cmd>Telescope colorscheme<cr>", "💅 Change colorscheme" },
+  ["<leader>si"] = { "<cmd>e $MYVIMRC<cr>", "📝 Edit init.lua" },
+  ["<leader>sr"] = { "<cmd>luafile $MYVIMRC<cr>", "♻️ Reload settings" },
+
   ["<leader>p"] = { name = "pick..." },
-  ["<leader>pf"] = { "<cmd>Telescope fd<cr>", "Open files" },
+  ["<leader>pf"] = { "<cmd>Telescope fd<cr>", "📁 Open files..." },
+
   ["<leader>c"] = { name = "code..." },
-  ["<leader>cd"] = { "<cmd>Telescope diagnostics<cr>", "Show errors" },
+  ["<leader>cd"] = { "<cmd>Telescope diagnostics<cr>", "🚨 Show errors..." },
+  ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "💡 Code actions..." },
+  ["<leader>cr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "✏️ Rename symbol..." },
+})
+
+-- Completion
+local cmp = require("cmp")
+require("cmp").setup({
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" },
+  }, {
+    { name = "buffer" },
+  }),
 })
