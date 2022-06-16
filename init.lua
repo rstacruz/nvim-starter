@@ -22,10 +22,6 @@ require("packer").startup(function(use)
 
   -- Completions
   use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-vsnip")
   use("hrsh7th/nvim-cmp")
 end)
 
@@ -35,6 +31,9 @@ if bootstrap then
 else
   pcall(require, "impatient")
 end
+
+-- Vim configuration
+vim.o.number = true
 
 -- Set theme
 vim.cmd([[color github_dark]])
@@ -82,17 +81,17 @@ require("which-key").register({
   ["<c-p>"] = { "<cmd>Telescope fd<cr>", "Open files" },
 
   ["<leader>s"] = { name = "Settings..." },
-  ["<leader>sc"] = { "<cmd>Telescope colorscheme<cr>", "💅 Change colorscheme" },
-  ["<leader>si"] = { "<cmd>e $MYVIMRC<cr>", "📝 Edit init.lua" },
-  ["<leader>sr"] = { "<cmd>luafile $MYVIMRC<cr>", "♻️ Reload settings" },
+  ["<leader>sc"] = { "<cmd>Telescope colorscheme<cr>", "Change colorscheme" },
+  ["<leader>si"] = { "<cmd>e $MYVIMRC<cr>", "Edit init.lua" },
+  ["<leader>sr"] = { "<cmd>luafile $MYVIMRC<cr>", "Reload settings" },
 
   ["<leader>p"] = { name = "pick..." },
-  ["<leader>pf"] = { "<cmd>Telescope fd<cr>", "📁 Open files..." },
+  ["<leader>pf"] = { "<cmd>Telescope fd<cr>", "Open files..." },
 
   ["<leader>c"] = { name = "code..." },
-  ["<leader>cd"] = { "<cmd>Telescope diagnostics<cr>", "🚨 Show errors..." },
-  ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "💡 Code actions..." },
-  ["<leader>cr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "✏️ Rename symbol..." },
+  ["<leader>cd"] = { "<cmd>Telescope diagnostics<cr>", "Show errors..." },
+  ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions..." },
+  ["<leader>cr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol..." },
 })
 
 -- Completion
