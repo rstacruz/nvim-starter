@@ -14,7 +14,6 @@ require("packer").startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Treesitter
   use("neovim/nvim-lspconfig") -- Configure LSP
   use("williamboman/nvim-lsp-installer") -- Install LSP servers (:LspInstall)
-  use("jose-elias-alvarez/null-ls.nvim") -- Formatting and diagnostics
   use({ "nvim-telescope/telescope.nvim" }) -- Pick files and more
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use("folke/which-key.nvim") -- Menu when pressing [space]
