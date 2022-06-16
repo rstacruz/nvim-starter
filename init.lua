@@ -76,8 +76,14 @@ end
 lspconfig.sumneko_lua.setup({})
 
 -- Key bindings
+-- Managed by which-key
 vim.g.mapleader = " "
 require("which-key").register({
+  ["<c-p>"] = { "<cmd>Telescope fd<cr>", "Open files" },
+  ["<leader>s"] = { name = "settings..." },
+  ["<leader>sc"] = { "<cmd>Telescope colorscheme<cr>", "Change colorscheme" },
+  ["<leader>si"] = { "<cmd>e $MYVIMRC<cr>", "Edit settings" },
+  ["<leader>sr"] = { "<cmd>luafile $MYVIMRC<cr>", "Reload settings" },
   ["<leader>p"] = { name = "pick..." },
   ["<leader>pf"] = { "<cmd>Telescope fd<cr>", "Open files" },
   ["<leader>c"] = { name = "code..." },
