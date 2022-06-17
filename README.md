@@ -35,10 +35,10 @@ cd ~/nvim-starter
 curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -o nvim/init.lua
 
 # start nvim with this nvim directory
-XDG_CONFIG_HOME=$(pwd)/nvim XDG_DATA_HOME=$(pwd)/data nvim
+XDG_CONFIG_HOME=$(pwd) XDG_DATA_HOME=$(pwd)/data nvim
 
 # ...alternatively, for fish shell users:
-XDG_CONFIG_HOME=(pwd)/nvim XDG_DATA_HOME=(pwd)/data nvim
+XDG_CONFIG_HOME=(pwd) XDG_DATA_HOME=(pwd)/data nvim
 ```
 
 ## Goals
