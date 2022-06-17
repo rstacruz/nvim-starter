@@ -23,10 +23,13 @@ end)
 
 -- Auto-install if needed
 if strapped then
+  vim.cmd("autocmd User PackerCompileDone luafile " .. vim.env.MYVIMRC)
   require("packer").sync()
-else
-  pcall(require, "impatient")
+  return
 end
+
+-- Optimise lua cache
+require("impatient")
 
 -- Vim configuration
 vim.o.number = true -- line numbers
@@ -34,12 +37,11 @@ vim.o.mouse = "a" -- mouse support
 vim.o.undofile = false -- no undo file
 vim.o.swapfile = false -- no swap file
 vim.o.wrap = false -- no word wrap
+vim.g.mapleader = " " -- leader key
 vim.cmd([[color github_dark]])
 
 -- LSP installer
-require("nvim-lsp-installer").setup({
-  automatic_installation = true,
-})
+require("nvim-lsp-installer").setup({ automatic_installation = true })
 
 -- Which key
 vim.o.timeoutlen = 200
@@ -76,7 +78,6 @@ require("telescope").load_extension("fzf")
 
 -- Key bindings
 -- Managed by which-key
-vim.g.mapleader = " "
 require("which-key").register({
   ["<c-p>"] = { "<cmd>Telescope fd<cr>", "Open files" },
 
