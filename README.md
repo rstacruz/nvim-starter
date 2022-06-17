@@ -13,28 +13,32 @@ It **does not include** some things, but can be integrated as needed.
 
 - Status line plugin (eg, [lualine](https://github.com/nvim-lualine/lualine.nvim))
 - File explorer (eg, [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim))
-- Git integration (eg, [fugitive](https://github.com/TimUntersberger/neogit))
-- Snippets (eg, luasnip, vsnip)
+- Git integration (eg, [neogit](https://github.com/TimUntersberger/neogit))
+- Snippets (eg, [luasnip](https://github.com/L3MON4D3/LuaSnip))
 
 ## Usage
 
-Paste [**init.lua**](https://github.com/rstacruz/nvim-starter/blob/main/init.lua) into `$HOME/.config/nvim/init.lua`.
+Neovim 0.6 is required. Paste [**init.lua**](https://github.com/rstacruz/nvim-starter/blob/main/init.lua) into `~/.config/nvim/init.lua`.
 
 ```sh
-mkdir $HOME/.config/nvim
-# paste init.vim into $HOME/.config/nvim/init.lua
+mkdir -p ~/.config/nvim
+curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -o ~/.config/nvim/init.lua
+# ...or paste init.lua into ~/.config/nvim/init.lua
 ```
 
-Alternatively, if you just want to give it a try:
+Alternatively, if you just want to give it a try without overriding your config:
 
-```sh
+```bash
 # Create a nvim directory
-mkdir -p $HOME/nvim-starter/nvim
-mkdir -p $HOME/nvim-starter/data
-curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -o $HOME/nvim-starter/nvim/init.lua
+mkdir -p ~/nvim-starter/{nvim,data}
+cd ~/nvim-starter
+curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -o nvim/init.lua
 
 # start nvim with this nvim directory
-XDG_CONFIG_HOME=$HOME/nvim-starter/nvim XDG_DATA_HOME=$HOME/nvim-starter/data nvim
+XDG_CONFIG_HOME=$(pwd)/nvim XDG_DATA_HOME=$(pwd)/data nvim
+
+# ...alternatively, for fish shell users:
+XDG_CONFIG_HOME=(pwd)/nvim XDG_DATA_HOME=(pwd)/data nvim
 ```
 
 ## Goals
