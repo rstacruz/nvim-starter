@@ -70,7 +70,7 @@ require("nvim-treesitter.configs").setup({
 -- These enable advanced features (go to definition, hover, error checking, etc)
 local lspconfig = require("lspconfig")
 lspconfig.sumneko_lua.setup({}) -- lua
--- lspconfig.cssts.setup({}) -- css
+-- lspconfig.cssls.setup({}) -- css
 -- lspconfig.pylsp.setup({}) -- python
 -- lspconfig.pyright.setup({}) -- python type checking
 -- lspconfig.solargraph.setup({}) -- ruby
