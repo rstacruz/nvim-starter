@@ -39,6 +39,7 @@ vim.o.termguicolors = true -- full color in terminal
 vim.o.timeoutlen = 200
 vim.o.undofile = false -- no undo file
 vim.o.wrap = false -- no word wrap
+vim.o.laststatus = 3 -- global statusline
 vim.cmd([[color github_dark]])
 
 -- LSP installer
