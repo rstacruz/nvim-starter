@@ -37,7 +37,11 @@ curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -
 XDG_CONFIG_HOME=$HOME/nvim-starter/nvim XDG_DATA_HOME=$HOME/nvim-starter/data nvim
 ```
 
-## Goal
+## Goals
 
 - Provide a template for new Neovim users to start with
 - Keep it in 1 file (init.lua) under 150 lines as much as possible
+
+## Also see
+
+- [Gavinok/Kickstart.nvim: A small, documented, and featureful neovim starter config](https://github.com/Gavinok/Kickstart.nvim)
