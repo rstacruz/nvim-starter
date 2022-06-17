@@ -41,6 +41,22 @@ XDG_CONFIG_HOME=$(pwd) XDG_DATA_HOME=$(pwd)/data nvim
 XDG_CONFIG_HOME=(pwd) XDG_DATA_HOME=(pwd)/data nvim
 ```
 
+## Adding languages
+
+To add syntax highlighting (treesitter grammar) for a language:
+
+```sh
+:TSInstall python
+# ...or edit init.lua and add it to `ensure_installed`
+```
+
+To add advanced features (language servers, or LSP):
+
+```sh
+:LspInstall
+# ...then configure it in init.lua
+```
+
 ## Goals
 
 - Provide a template for new Neovim users to start with
