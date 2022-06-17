@@ -21,66 +21,65 @@ require("packer").startup(function(use)
   use("hrsh7th/cmp-nvim-lsp") -- Completions for LSP
 end)
 
--- Auto-install if needed
+-- Auto-install packages on first run
 if strapped then
   vim.cmd("autocmd User PackerCompileDone luafile " .. vim.env.MYVIMRC)
   require("packer").sync()
   return
 end
 
--- Optimise lua cache
-require("impatient")
+require("impatient") -- Optimise lua cache
 
 -- Vim configuration
 vim.g.mapleader = " " -- leader key
 vim.o.mouse = "a" -- mouse support
 vim.o.number = true -- line numbers
 vim.o.swapfile = false -- no swap file
+vim.o.termguicolors = true -- full color in terminal
 vim.o.timeoutlen = 200
 vim.o.undofile = false -- no undo file
 vim.o.wrap = false -- no word wrap
 vim.cmd([[color github_dark]])
 
 -- LSP installer
-require("nvim-lsp-installer").setup({}) -- automatic_installation = true })
+require("nvim-lsp-installer").setup({ automatic_installation = true })
 
 -- Which key
 require("which-key").setup({})
 
 -- Treesitter
--- Add the languages you use here to ensure_installed. This will
--- install the treesitter grammar for those languages, which will
--- greatly improve the syntax highlighting for that language.
+-- Adding languages to `ensure_installed` improves syntax highlighting and more.
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "javascript", "ruby", "lua", "json", "html", "vim" },
-  -- also: "css", "go", "python", "php", "markdown", "rust", "yaml" and more
-  -- For more languages, see: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
+  ensure_installed = {
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "vim",
+    -- "css",
+    -- "python",
+    -- "markdown",
+    -- ...for more, see: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
+  },
   highlight = { enable = true },
 })
 
 -- LSPConfig
--- For every language server you want to use, add them here.
--- They would need to be installed with :LspInstall
+-- These enable advanced features (go to definition, hover, error checking, etc)
 local lspconfig = require("lspconfig")
-if vim.fn.executable("ruby") then
-  lspconfig.solargraph.setup({})
-end
-if vim.fn.executable("node") then
-  lspconfig.tsserver.setup({})
-  lspconfig.yamlls.setup({})
-end
-if vim.fn.executable("python3") then
-  lspconfig.pylsp.setup({})
-  lspconfig.pyright.setup({})
-end
-lspconfig.sumneko_lua.setup({})
+lspconfig.sumneko_lua.setup({}) -- lua
+-- lspconfig.solargraph.setup({}) -- ruby
+-- lspconfig.cssts.setup({}) -- ruby
+-- lspconfig.tsserver.setup({}) -- javascript and typescript
+-- lspconfig.pylsp.setup({}) -- python
+-- lspconfig.pyright.setup({}) -- python type checking
+-- ...for more, see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 -- Telescope
 require("telescope").setup({})
 require("telescope").load_extension("fzf")
 
 -- Key bindings
--- Managed by which-key
 require("which-key").register({
   ["<c-p>"] = { "<cmd>Telescope fd<cr>", "Open files" },
 
@@ -102,8 +101,6 @@ require("which-key").register({
   ["gh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show hover (lsp)" },
   ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation (lsp)..." },
   ["gr"] = { "<cmd>Telescope lsp_references<cr>", "References (lsp)..." },
-
-  ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show hover (lsp)" },
 })
 
 -- Completion

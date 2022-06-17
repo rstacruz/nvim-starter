@@ -73,28 +73,7 @@ XDG_CONFIG_HOME=(pwd) XDG_DATA_HOME=(pwd)/data nvim
 
 ## Adding languages
 
-Use `:TSInstall` to add syntax highlighting (treesitter grammar) for a language, and `:LspInstall` to install advanced features (Language Server). Here are some examples:
-
-<details>
-<summary>Python</summary>
-
-```sh
-:TSInstall python
-:LspInstall pyright
-:LspInstall pylsp
-```
-
-</details>
-
-<details>
-<summary>TypeScript</summary>
-
-```sh
-:TSInstall typescript
-:LspInstall tsserver
-```
-
-</details>
+Edit init.lua, and enable syntax for them (under `nvim-treesitter.configs`). Optionally, advanced features can be unlocked by enablieng their language server (under `lspconfig`).
 
 ## Goals
 
