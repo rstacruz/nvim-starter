@@ -41,7 +41,7 @@ vim.g.mapleader = " " -- leader key
 vim.cmd([[color github_dark]])
 
 -- LSP installer
-require("nvim-lsp-installer").setup({ automatic_installation = true })
+require("nvim-lsp-installer").setup({}) -- automatic_installation = true })
 
 -- Which key
 vim.o.timeoutlen = 200
