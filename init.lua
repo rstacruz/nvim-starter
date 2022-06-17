@@ -12,7 +12,7 @@ require("packer").startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Treesitter
   use("neovim/nvim-lspconfig") -- Configure LSP
   use("williamboman/nvim-lsp-installer") -- Install LSP servers (:LspInstall)
-  use({ "nvim-telescope/telescope.nvim" }) -- Pick files and more
+  use("nvim-telescope/telescope.nvim") -- Pick files and more
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use("folke/which-key.nvim") -- Menu when pressing [space]
   use("lewis6991/impatient.nvim") -- Improve startup time by optimising Lua cache
@@ -29,7 +29,11 @@ else
 end
 
 -- Vim configuration
-vim.o.number = true
+vim.o.number = true -- line numbers
+vim.o.mouse = "a" -- mouse support
+vim.o.undofile = false -- no undo file
+vim.o.swapfile = false -- no swap file
+vim.o.wrap = false -- no word wrap
 vim.cmd([[color github_dark]])
 
 -- LSP installer
@@ -57,14 +61,18 @@ require("nvim-treesitter.configs").setup({
 -- For every language server you want to use, add them here.
 -- They would need to be installed with :LspInstall
 local lspconfig = require("lspconfig")
-if vim.fn.executable("ruby") == 1 then
+if vim.fn.executable("ruby") then
   lspconfig.solargraph.setup({})
 end
-if vim.fn.executable("node") == 1 then
+if vim.fn.executable("node") then
   lspconfig.tsserver.setup({})
   lspconfig.yamlls.setup({})
 end
 lspconfig.sumneko_lua.setup({})
+
+-- Telescope
+require("telescope").setup({})
+require("telescope").load_extension("fzf")
 
 -- Key bindings
 -- Managed by which-key
