@@ -12,7 +12,7 @@ require("packer").startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Treesitter
   use("neovim/nvim-lspconfig") -- Configure LSP
   use("williamboman/nvim-lsp-installer") -- Install LSP servers (:LspInstall)
-  use("nvim-telescope/telescope.nvim") -- Pick files and more
+  use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }) -- Pick files and more
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use("folke/which-key.nvim") -- Menu when pressing [space]
   use("lewis6991/impatient.nvim") -- Improve startup time by optimising Lua cache
