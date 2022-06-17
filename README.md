@@ -32,9 +32,10 @@ Simple configuration to get started with with Neovim.
 - File menus ([telescope](https://github.com/nvim-telescope/telescope.nvim))
 - Keymap menus ([which-key](https://github.com/folke/which-key.nvim))
 
-It **does not include** some things, but can be integrated as needed.
+It **does not include** some things, but can be integrated as needed (see [**optional_extras.lua**](./optional_extras.lua)).
 
-- Status line plugin (eg, [lualine](https://github.com/nvim-lualine/lualine.nvim))
+- Status line plugin ([lualine](https://github.com/nvim-lualine/lualine.nvim))
+- Code formatting ([null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim))
 - File explorer (eg, [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim))
 - Git integration (eg, [neogit](https://github.com/TimUntersberger/neogit))
 - Snippets (eg, [luasnip](https://github.com/L3MON4D3/LuaSnip))
@@ -49,7 +50,10 @@ curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -
 # ...or paste init.lua into ~/.config/nvim/init.lua
 ```
 
-Alternatively, if you just want to give it a try without overriding your config:
+<details>
+<summary>Want to try it without overriding your config?</summary>
+
+To give it a try without overriding your existing Neovim config:
 
 ```bash
 # Create a nvim directory
@@ -59,12 +63,7 @@ curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -
 
 # start nvim with this nvim directory
 XDG_CONFIG_HOME=$(pwd) XDG_DATA_HOME=$(pwd)/data nvim
-```
 
-<details>
-<summary>Not using bash/zsh?</summary>
-
-```bash
 # ...alternatively, for fish shell users:
 XDG_CONFIG_HOME=(pwd) XDG_DATA_HOME=(pwd)/data nvim
 ```
