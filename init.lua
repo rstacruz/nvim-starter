@@ -44,9 +44,6 @@ vim.cmd([[color github_dark]])
 -- LSP installer
 require("nvim-lsp-installer").setup({ automatic_installation = true })
 
--- Which key
-require("which-key").setup({})
-
 -- Treesitter
 -- Adding languages to `ensure_installed` improves syntax highlighting and more.
 require("nvim-treesitter.configs").setup({
@@ -57,8 +54,12 @@ require("nvim-treesitter.configs").setup({
     "lua",
     "vim",
     -- "css",
-    -- "python",
+    -- "go",
     -- "markdown",
+    -- "php",
+    -- "python",
+    -- "ruby",
+    -- "rust"
     -- ...for more, see: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
   },
   highlight = { enable = true },
@@ -68,11 +69,11 @@ require("nvim-treesitter.configs").setup({
 -- These enable advanced features (go to definition, hover, error checking, etc)
 local lspconfig = require("lspconfig")
 lspconfig.sumneko_lua.setup({}) -- lua
--- lspconfig.solargraph.setup({}) -- ruby
--- lspconfig.cssts.setup({}) -- ruby
--- lspconfig.tsserver.setup({}) -- javascript and typescript
+-- lspconfig.cssts.setup({}) -- css
 -- lspconfig.pylsp.setup({}) -- python
 -- lspconfig.pyright.setup({}) -- python type checking
+-- lspconfig.solargraph.setup({}) -- ruby
+-- lspconfig.tsserver.setup({}) -- javascript and typescript
 -- ...for more, see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 -- Telescope
@@ -80,6 +81,7 @@ require("telescope").setup({})
 require("telescope").load_extension("fzf")
 
 -- Key bindings
+require("which-key").setup({})
 require("which-key").register({
   ["<c-p>"] = { "<cmd>Telescope fd<cr>", "Open files" },
 
