@@ -32,30 +32,29 @@ end
 require("impatient")
 
 -- Vim configuration
-vim.o.number = true -- line numbers
-vim.o.mouse = "a" -- mouse support
-vim.o.undofile = false -- no undo file
-vim.o.swapfile = false -- no swap file
-vim.o.wrap = false -- no word wrap
 vim.g.mapleader = " " -- leader key
+vim.o.mouse = "a" -- mouse support
+vim.o.number = true -- line numbers
+vim.o.swapfile = false -- no swap file
+vim.o.timeoutlen = 200
+vim.o.undofile = false -- no undo file
+vim.o.wrap = false -- no word wrap
 vim.cmd([[color github_dark]])
 
 -- LSP installer
 require("nvim-lsp-installer").setup({}) -- automatic_installation = true })
 
 -- Which key
-vim.o.timeoutlen = 200
 require("which-key").setup({})
 
 -- Treesitter
 -- Add the languages you use here to ensure_installed. This will
 -- install the treesitter grammar for those languages, which will
 -- greatly improve the syntax highlighting for that language.
---
--- See this page:
--- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "javascript", "ruby", "lua", "markdown", "yaml", "json", "html", "vim" },
+  ensure_installed = { "javascript", "ruby", "lua", "json", "html", "vim" },
+  -- also: "css", "go", "python", "php", "markdown", "rust", "yaml" and more
+  -- For more languages, see: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
   highlight = { enable = true },
 })
 

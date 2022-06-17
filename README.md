@@ -36,26 +36,42 @@ curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -
 
 # start nvim with this nvim directory
 XDG_CONFIG_HOME=$(pwd) XDG_DATA_HOME=$(pwd)/data nvim
+```
 
+<details>
+<summary>Not using bash/zsh?</summary>
+
+```bash
 # ...alternatively, for fish shell users:
 XDG_CONFIG_HOME=(pwd) XDG_DATA_HOME=(pwd)/data nvim
 ```
 
+</details>
+
 ## Adding languages
 
-To add syntax highlighting (treesitter grammar) for a language:
+Use `:TSInstall` to add syntax highlighting (treesitter grammar) for a language, and `:LspInstall` to install advanced features (Language Server). Here are some examples:
+
+<details>
+<summary>Python</summary>
 
 ```sh
 :TSInstall python
-# ...or edit init.lua and add it to `ensure_installed`
+:LspInstall pyright
+:LspInstall pylsp
 ```
 
-To add advanced features (language servers, or LSP):
+</details>
+
+<details>
+<summary>TypeScript</summary>
 
 ```sh
-:LspInstall
-# ...then configure it in init.lua
+:TSInstall typescript
+:LspInstall tsserver
 ```
+
+</details>
 
 ## Goals
 
