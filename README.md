@@ -1,6 +1,29 @@
 # neovim starter config
 
-Simple configuration to get started with. Includes:
+Simple configuration to get started with with Neovim.
+
+<table>
+<tr></tr>
+<tr>
+<td>
+
+![image](https://user-images.githubusercontent.com/74385/174232104-c2d9fc2e-b025-41c9-afd9-dc44045348c7.png)
+
+</td>
+<td>
+
+![image](https://user-images.githubusercontent.com/74385/174232227-c7d92eb0-32c2-4646-8172-b2d8ca42c1df.png)
+
+</td>
+<td>
+
+![image](https://user-images.githubusercontent.com/74385/174232272-197faf52-fb5d-455d-9c14-df84e8ab0166.png)
+
+</td>
+</tr>
+</table>
+
+## What's included
 
 - Packer for package management ([packer](https://github.com/wbthomason/packer.nvim))
 - Language Server Support ([nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer), [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig))
@@ -18,7 +41,7 @@ It **does not include** some things, but can be integrated as needed.
 
 ## Usage
 
-Neovim 0.6 is required. Paste [**init.lua**](https://github.com/rstacruz/nvim-starter/blob/main/init.lua) into `~/.config/nvim/init.lua`.
+Neovim 0.7 is required. Paste [**init.lua**](https://github.com/rstacruz/nvim-starter/blob/main/init.lua) into `~/.config/nvim/init.lua`.
 
 ```sh
 mkdir -p ~/.config/nvim
