@@ -49,17 +49,18 @@ require("nvim-lsp-installer").setup({ automatic_installation = true })
 require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "html",
-    "javascript",
     "json",
     "lua",
     "vim",
     -- "css",
     -- "go",
+    -- "javascript",
     -- "markdown",
     -- "php",
     -- "python",
     -- "ruby",
-    -- "rust"
+    -- "rust",
+    -- "typescript",
     -- ...for more, see: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
   },
   highlight = { enable = true },
