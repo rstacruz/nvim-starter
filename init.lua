@@ -55,7 +55,7 @@ require("which-key").setup({})
 -- See this page:
 -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "javascript", "lua", "markdown", "yaml", "json", "html", "vim" },
+  ensure_installed = { "javascript", "ruby", "lua", "markdown", "yaml", "json", "html", "vim" },
   highlight = { enable = true },
 })
 
