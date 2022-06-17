@@ -96,6 +96,14 @@ require("which-key").register({
   ["<leader>cd"] = { "<cmd>Telescope diagnostics<cr>", "Show errors..." },
   ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions..." },
   ["<leader>cr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol..." },
+
+  ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration (lsp)..." },
+  ["gd"] = { "<cmd>Telescope lsp_definitions<cr>", "Definitions (lsp)..." },
+  ["gh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show hover (lsp)" },
+  ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation (lsp)..." },
+  ["gr"] = { "<cmd>Telescope lsp_references<cr>", "References (lsp)..." },
+
+  ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show hover (lsp)" },
 })
 
 -- Completion
