@@ -14,6 +14,7 @@ It **does not include** some things, but can be integrated as needed.
 - Status line plugin (eg, [lualine](https://github.com/nvim-lualine/lualine.nvim))
 - File explorer (eg, [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim))
 - Git integration (eg, [fugitive](https://github.com/TimUntersberger/neogit))
+- Snippets (eg, luasnip, vsnip)
 
 ## Usage
 

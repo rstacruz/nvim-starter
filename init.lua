@@ -97,9 +97,5 @@ require("which-key").register({
 -- Completion
 local cmp = require("cmp")
 require("cmp").setup({
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-  }, {
-    { name = "buffer" },
-  }),
+  sources = cmp.config.sources({ { name = "nvim_lsp" } }, { { name = "buffer" } }),
 })
