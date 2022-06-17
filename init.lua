@@ -1,16 +1,14 @@
--- Install Packer if needed
-local bootstrap
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.cmd([[echo "Packer was not found, installing..."]])
-  local packer_url = "https://github.com/wbthomason/packer.nvim"
-  bootstrap = vim.fn.system({ "git", "clone", "--depth", "1", packer_url, install_path })
+-- Install Packer on first run
+local strapped
+local pack_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(pack_path)) > 0 then
+  vim.cmd([[echo "Installing packer..."]])
+  strapped = vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", pack_path })
 end
 
 -- Initialise packer
 require("packer").startup(function(use)
   use("wbthomason/packer.nvim") -- Package manager
-
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Treesitter
   use("neovim/nvim-lspconfig") -- Configure LSP
   use("williamboman/nvim-lsp-installer") -- Install LSP servers (:LspInstall)
@@ -19,14 +17,12 @@ require("packer").startup(function(use)
   use("folke/which-key.nvim") -- Menu when pressing [space]
   use("lewis6991/impatient.nvim") -- Improve startup time by optimising Lua cache
   use("projekt0n/github-nvim-theme") -- Theme
-
-  -- Completions
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/nvim-cmp") -- Completions
+  use("hrsh7th/cmp-nvim-lsp") -- Completions for LSP
 end)
 
 -- Auto-install if needed
-if bootstrap then
+if strapped then
   require("packer").sync()
 else
   pcall(require, "impatient")
@@ -34,8 +30,6 @@ end
 
 -- Vim configuration
 vim.o.number = true
-
--- Set theme
 vim.cmd([[color github_dark]])
 
 -- LSP installer
@@ -58,8 +52,6 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = { "javascript", "lua", "markdown", "yaml", "json", "html", "vim" },
   highlight = { enable = true },
 })
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- LSPConfig
 -- For every language server you want to use, add them here.
@@ -85,10 +77,10 @@ require("which-key").register({
   ["<leader>si"] = { "<cmd>e $MYVIMRC<cr>", "Edit init.lua" },
   ["<leader>sr"] = { "<cmd>luafile $MYVIMRC<cr>", "Reload settings" },
 
-  ["<leader>p"] = { name = "pick..." },
+  ["<leader>p"] = { name = "Pick..." },
   ["<leader>pf"] = { "<cmd>Telescope fd<cr>", "Open files..." },
 
-  ["<leader>c"] = { name = "code..." },
+  ["<leader>c"] = { name = "Code..." },
   ["<leader>cd"] = { "<cmd>Telescope diagnostics<cr>", "Show errors..." },
   ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions..." },
   ["<leader>cr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol..." },
