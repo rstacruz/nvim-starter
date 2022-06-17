@@ -70,6 +70,10 @@ if vim.fn.executable("node") then
   lspconfig.tsserver.setup({})
   lspconfig.yamlls.setup({})
 end
+if vim.fn.executable("python3") then
+  lspconfig.pylsp.setup({})
+  lspconfig.pyright.setup({})
+end
 lspconfig.sumneko_lua.setup({})
 
 -- Telescope
