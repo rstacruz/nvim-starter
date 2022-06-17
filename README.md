@@ -18,9 +18,23 @@ It **does not include** some things, but can be integrated as needed.
 
 ## Usage
 
+Paste [**init.lua**](https://github.com/rstacruz/nvim-starter/blob/main/init.lua) into `$HOME/.config/nvim/init.lua`.
+
 ```sh
 mkdir $HOME/.config/nvim
 # paste init.vim into $HOME/.config/nvim/init.lua
+```
+
+Alternatively, if you just want to give it a try:
+
+```sh
+# Create a nvim directory
+mkdir -p $HOME/nvim-starter/nvim
+mkdir -p $HOME/nvim-starter/data
+curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -o $HOME/nvim-starter/nvim/init.lua
+
+# start nvim with this nvim directory
+XDG_CONFIG_HOME=$HOME/nvim-starter/nvim XDG_DATA_HOME=$HOME/nvim-starter/data nvim
 ```
 
 ## Goal
