@@ -1,9 +1,12 @@
 -- Install Packer on first run
-local strapped
 local pack_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(pack_path)) > 0 then
   vim.cmd([[echo "Installing packer..."]])
-  strapped = vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", pack_path })
+  vim.g.firstrun = vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", pack_path })
+  vim.defer_fn(function()
+    vim.cmd("luafile " .. vim.env.MYVIMRC)
+  end, 1)
+  return
 end
 
 -- Initialise packer
@@ -22,7 +25,8 @@ require("packer").startup(function(use)
 end)
 
 -- Auto-install packages on first run
-if strapped then
+if vim.g.firstrun then
+  vim.g.firstrun = null
   vim.cmd("autocmd User PackerCompileDone luafile " .. vim.env.MYVIMRC)
   require("packer").sync()
   return
