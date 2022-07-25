@@ -14,7 +14,8 @@ require("packer").startup(function(use)
   use("wbthomason/packer.nvim") -- Package manager
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Treesitter
   use("neovim/nvim-lspconfig") -- Configure LSP
-  use("williamboman/nvim-lsp-installer") -- Install LSP servers (:LspInstall)
+  use("williamboman/mason.nvim") -- Install LSP servers (:Mason)
+  use("williamboman/mason-lspconfig.nvim")
   use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }) -- Pick files and more
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use("folke/which-key.nvim") -- Menu when pressing [space]
@@ -46,7 +47,12 @@ vim.o.wrap = false -- no word wrap
 vim.cmd([[color github_dark]])
 
 -- LSP installer
-require("nvim-lsp-installer").setup({ automatic_installation = true })
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    -- "sumneko_lua", 
+  }
+})
 
 -- Treesitter
 -- Adding languages to `ensure_installed` improves syntax highlighting and more.
