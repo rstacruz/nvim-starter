@@ -56,16 +56,11 @@ curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -
 To give it a try without overriding your existing Neovim config:
 
 ```bash
-# Create a nvim directory
-mkdir -p ~/nvim-starter/{nvim,data}
-cd ~/nvim-starter
-curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -o nvim/init.lua
-
-# start nvim with this nvim directory
-XDG_CONFIG_HOME=$(pwd) XDG_DATA_HOME=$(pwd)/data nvim
-
-# ...alternatively, for fish shell users:
-XDG_CONFIG_HOME=(pwd) XDG_DATA_HOME=(pwd)/data nvim
+# Using `make nvim` will run Neovim with the nvim-starter config.
+# It won't modify your user's Neovim config.
+git clone https://github.com/rstacruz/nvim-starter.git
+cd nvim-starter
+make nvim
 ```
 
 </details>
