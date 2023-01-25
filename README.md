@@ -1,3 +1,5 @@
+> Also check out the LazyVim starter. It's a starter Neovim config using lazy.nvim as a package manager, which I'd personally prefer over packer. https://github.com/LazyVim/starter
+
 # neovim starter config
 
 Simple configuration to get started with with Neovim.
