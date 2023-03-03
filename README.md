@@ -58,11 +58,11 @@ curl -sL https://raw.githubusercontent.com/rstacruz/nvim-starter/main/init.lua -
 To give it a try without overriding your existing Neovim config:
 
 ```bash
-# Using `make nvim` will run Neovim with the nvim-starter config.
+# Using `./nvim` will run Neovim with the nvim-starter config.
 # It won't modify your user's Neovim config.
 git clone https://github.com/rstacruz/nvim-starter.git
 cd nvim-starter
-make nvim
+./nvim
 ```
 
 </details>
